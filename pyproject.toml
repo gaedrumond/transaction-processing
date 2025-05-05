@@ -1,0 +1,5 @@
+[project]
+name = "transaction processing"
+
+[tool.pytest.ini_options]
+pythonpath = "."
