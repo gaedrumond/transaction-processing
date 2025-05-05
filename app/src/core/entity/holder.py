@@ -21,17 +21,17 @@ class Holder:
         self._document = document
 
     @property
-    def name(self):
+    def name(self) -> str:
         return self._name
 
     @property
-    def email(self):
+    def email(self) -> str:
         return self._email
 
     @property
-    def document(self):
+    def document(self) -> str:
         return self._document
 
     @property
-    def document_type(self):
+    def document_type(self) ->str:
         return self._document_type

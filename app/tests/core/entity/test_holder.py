@@ -13,7 +13,6 @@ class HolderTestCase(unittest.TestCase):
         self._cnpj = '44.637.385/0001-78'
 
     def test_create_new_holder_with_cpf(self):
-        self.setUp()
         try:
             holder = Holder(self._name, self._email, self._cpf)
             self.assertEqual(self._name, holder.name)
@@ -24,7 +23,6 @@ class HolderTestCase(unittest.TestCase):
             self.assertFalse(exp)
 
     def test_create_new_holder_with_cnpj(self):
-        self.setUp()
         try:
             holder = Holder(self._name, self._email, self._cnpj)
             self.assertEqual(self._name, holder.name)
@@ -35,10 +33,22 @@ class HolderTestCase(unittest.TestCase):
             self.assertFalse(exp)
 
     def test_create_new_holder_with_invalid_document(self):
-        self.setUp()
-
         try:
-            holder = Holder(self._name, self._email, '123456789')
+            Holder(self._name, self._email, '123456789')
+        except Exception as exp:
+            self.assertRaises(InvalidDocumentException)
+
+
+    def test_create_new_holder_with_empty_document(self):
+        try:
+            Holder(self._name, self._email, '       ')
+        except Exception as exp:
+            self.assertRaises(InvalidDocumentException)
+
+
+    def test_create_new_holder_with_no_document(self):
+        try:
+            Holder(self._name, self._email)
         except Exception as exp:
             self.assertRaises(InvalidDocumentException)
 
