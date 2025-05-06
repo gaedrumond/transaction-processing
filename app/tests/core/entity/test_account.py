@@ -2,7 +2,7 @@ import unittest
 
 from app.src.core.entity.account import Account
 from app.src.core.entity.holder import Holder
-from app.src.core.exceptions.empty_id_exception import EmptyIdException
+from app.src.core.exceptions.empty_exception import EmptyException
 
 
 class AccountTestCase(unittest.TestCase):
@@ -23,13 +23,13 @@ class AccountTestCase(unittest.TestCase):
         try:
             Account('   ', self._holder)
         except Exception as exp:
-            self.assertRaises(EmptyIdException)
+            self.assertRaises(EmptyException)
 
     def test_create_account_with_no_id(self):
         try:
             Account(holder=self._holder)
         except Exception as exp:
-            self.assertRaises(EmptyIdException)
+            self.assertRaises(EmptyException)
 
 
 

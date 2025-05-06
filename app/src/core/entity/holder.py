@@ -16,9 +16,9 @@ class Holder:
             logger.error("nao foi possivel criar a transacao pois o documento eh invalido")
             raise InvalidDocumentException()
         logger.info("criando holder da transacao")
-        self._name = name
-        self._email = email
-        self._document = document
+        self._name:str = name
+        self._email:str = email
+        self._document:str = document
 
     @property
     def name(self) -> str:

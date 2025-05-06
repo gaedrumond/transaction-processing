@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 from app.src.core.entity.holder import Holder
-from app.src.core.exceptions.empty_id_exception import EmptyIdException
+from app.src.core.exceptions.empty_exception import EmptyException
 from app.src.utils.logger_mixin import logger
 
 
@@ -10,10 +10,10 @@ class Account:
     def __init__(self, id: str, holder: Holder):
         if id.strip() == '':
             logger.error("id da conta esta vazio")
-            raise EmptyIdException("conta")
+            raise EmptyException("conta")
         logger.info("criando objeto da conta")
-        self._id = id
-        self._holder = holder
+        self._id:str = id
+        self._holder:Holder = holder
 
     @property
     def id(self) -> str:
