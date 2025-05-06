@@ -3,5 +3,5 @@ from abc import ABC, abstractmethod
 class SecretsPort(ABC):
 
     @abstractmethod
-    def get_secret(self, key:str):
+    def get_secret(self, key:str) -> str:
         pass
