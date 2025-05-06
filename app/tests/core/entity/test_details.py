@@ -24,6 +24,10 @@ class DetailsTestCase(unittest.TestCase):
         except Exception as exp:
             self.assertFalse(exp)
 
+    def test_amount_decimal_houses(self):
+        details = Details(self._amount, self._currency, self._transaction_date, self._description)
+        self.assertRegex(str(details.amount), r'[0-9]*[.][0-9]{2}')
+
     def test_create_transaction_details_with_negative_amount(self):
         try:
             Details(-Decimal('4.00'), self._currency, self._transaction_date, self._description)
